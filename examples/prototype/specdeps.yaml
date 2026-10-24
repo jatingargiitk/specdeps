@@ -1,0 +1,55 @@
+version: 1
+
+targets:
+  payment-summary:
+    sources:
+      - path: sources/payments.md
+    output:
+      path: docs/payments-summary.md
+      section: summary
+    prompt: prompts/summarize.md
+    generatorVersion: fake-1
+    runner:
+      command: node
+      args:
+        - scripts/generate.mjs
+
+  checkout-spec:
+    sources:
+      - target: payment-summary
+      - path: sources/checkout-policy.md
+    output:
+      path: specs/checkout.md
+      section: payment-requirements
+    prompt: prompts/spec.md
+    generatorVersion: fake-1
+    runner:
+      command: node
+      args:
+        - scripts/generate.mjs
+
+  checkout-risk:
+    sources:
+      - path: sources/shipping.md
+    output:
+      path: specs/checkout.md
+      section: risk
+    prompt: prompts/risk.md
+    generatorVersion: fake-1
+    runner:
+      command: node
+      args:
+        - scripts/generate.mjs
+
+  shipping-note:
+    sources:
+      - path: sources/shipping.md
+    output:
+      path: docs/shipping.md
+      section: shipping-summary
+    prompt: prompts/shipping.md
+    generatorVersion: fake-1
+    runner:
+      command: node
+      args:
+        - scripts/generate.mjs
