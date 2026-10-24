@@ -1,0 +1,43 @@
+{
+  "name": "specdeps",
+  "version": "0.1.0",
+  "description": "Local-first rebuilds for AI-derived Markdown that preserve human-authored decisions.",
+  "type": "module",
+  "bin": {
+    "specdeps": "./dist/cli/main.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples/prototype",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && tsc -p tsconfig.test.json && node --test --test-reporter spec dist-test/test/*.test.js",
+    "specdeps": "node dist/cli/main.js"
+  },
+  "dependencies": {
+    "yaml": "^2.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "typescript": "^5.9.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "markdown",
+    "cli",
+    "build",
+    "specdeps"
+  ]
+}
