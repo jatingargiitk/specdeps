@@ -1,7 +1,8 @@
 {
   "name": "specdeps",
   "version": "0.1.0",
-  "description": "Local-first rebuilds for AI-derived Markdown that preserve human-authored decisions.",
+  "description": "Update AI-generated specs without erasing the decisions you wrote yourself.",
+  "author": "Jatin Garg",
   "type": "module",
   "bin": {
     "specdeps": "./dist/cli/main.js"
@@ -23,6 +24,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
+    "prepack": "npm run build",
     "test": "tsc -p tsconfig.json && tsc -p tsconfig.test.json && node --test --test-reporter spec dist-test/test/*.test.js",
     "specdeps": "node dist/cli/main.js"
   },
@@ -33,11 +35,24 @@
     "@types/node": "^22.19.0",
     "typescript": "^5.9.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jatingargiitk/specdeps.git"
+  },
+  "homepage": "https://github.com/jatingargiitk/specdeps#readme",
+  "bugs": {
+    "url": "https://github.com/jatingargiitk/specdeps/issues"
+  },
   "license": "MIT",
   "keywords": [
     "markdown",
     "cli",
     "build",
-    "specdeps"
+    "specdeps",
+    "spec",
+    "llm",
+    "ai",
+    "documentation",
+    "codegen"
   ]
 }
