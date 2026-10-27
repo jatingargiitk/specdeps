@@ -14,7 +14,16 @@ specdeps is not a wiki, an agent memory store, a vector database, a semantic che
 
 The package targets Node.js 22 and newer, which covers the Node 22 and Node 24 LTS lines. It was developed on the Node.js 25.4.0 Current release installed on this machine and does not use Current-only APIs. The only runtime dependency is `yaml`. TypeScript is strict.
 
-Install and run it from this repository:
+## Install
+
+Use npx to run specdeps without installing:
+
+```bash
+npx specdeps --help
+npx specdeps init --example
+```
+
+Or install and run from this repository:
 
 ```bash
 npm install
