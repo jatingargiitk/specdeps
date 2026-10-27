@@ -5,7 +5,7 @@ import { SpecdepsError } from '../core/errors.js';
 import type { InitFile } from '../core/engine.js';
 
 export const PROTOTYPE_FILES = [
-  '.gitignore',
+  'gitignore',
   'specdeps.yaml',
   'sources/payments.md',
   'sources/shipping.md',
@@ -27,7 +27,10 @@ export function minimalManifestFile(): InitFile {
 
 export function loadPrototypeFiles(): InitFile[] {
   const root = prototypeRoot();
-  return PROTOTYPE_FILES.map((rel) => ({ path: rel, bytes: readFileSync(path.join(root, rel)) }));
+  return PROTOTYPE_FILES.map((rel) => ({
+    path: rel === 'gitignore' ? '.gitignore' : rel,
+    bytes: readFileSync(path.join(root, rel)),
+  }));
 }
 
 export function prototypeRoot(): string {
